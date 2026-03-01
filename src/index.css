@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html, body, #root {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #121212;
+  color: #ffffff;
+  overflow-x: hidden;
+  /* พื้นที่ปลอดสำหรับมือถือมี notch / home indicator */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #1DB954;
+  outline-offset: 2px;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* ซ่อน scrollbar แต่ยังเลื่อนได้ */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar แบบบางเข้ากับเว็บ – ใช้กับ Popular Manga และพื้นที่เลื่อนอื่น */
+.scrollbar-web {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+.scrollbar-web::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-web::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-web::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 3px;
+}
+.scrollbar-web::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+.scrollbar-web::-webkit-scrollbar-button {
+  display: none;
+}
