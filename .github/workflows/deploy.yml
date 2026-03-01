@@ -1,7 +1,3 @@
-# Deploy manga-spotifly ไปยัง GitHub Pages
-# เปิดใช้: Repo → Settings → Pages → Source = "GitHub Actions"
-# ถ้า repo มีแค่โฟลเดอร์ manga-spotifly ให้ใช้ workflow นี้ใน repo นั้น (root = โฟลเดอร์โปรเจกต์)
-
 name: Deploy ไปยัง GitHub Pages
 
 on:
@@ -29,7 +25,6 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: package-lock.json
 
       - name: ติดตั้ง dependencies
         run: npm ci
@@ -40,15 +35,9 @@ jobs:
         run: npm run build
 
       - name: อัปโหลด artifact
-<<<<<<< HEAD
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist
-=======
-        uses: actions/upload-pages-artifact@v4
-          with:
-        path: dist
->>>>>>> 316238a06982265402b2dc66ccfc99a20e1defba
 
   deploy:
     needs: build
@@ -59,4 +48,4 @@ jobs:
     steps:
       - name: Deploy ไปยัง GitHub Pages
         id: deploy
-        uses: actions/deploy-pages@4
+        uses: actions/deploy-pages@v4
