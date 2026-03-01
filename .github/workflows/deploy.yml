@@ -40,7 +40,7 @@ jobs:
         run: npm run build
 
       - name: อัปโหลด artifact
-        uses: actions/upload-pages-artifact@v4.0.0
+        uses: uses: actions/deploy-pages@v3
         with:
           path: dist
 
