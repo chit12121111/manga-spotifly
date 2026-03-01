@@ -40,9 +40,15 @@ jobs:
         run: npm run build
 
       - name: อัปโหลด artifact
+<<<<<<< HEAD
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
         with:
           path: dist
+=======
+        uses: actions/upload-pages-artifact@v4
+          with:
+        path: dist
+>>>>>>> 316238a06982265402b2dc66ccfc99a20e1defba
 
   deploy:
     needs: build
